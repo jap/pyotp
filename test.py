@@ -194,7 +194,7 @@ class TOTPExampleValuesFromTheRFC(unittest.TestCase):
         totp = pyotp.TOTP("GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ")
         # -1 and -29.5 round down to 0 (epoch)
         self.assertEqual(totp.at(-1), "755224")
-        self.assertEqual(totp.at(-29.5), "755224")
+        self.assertEqual(totp.at(-29.5), "755224")  # type: ignore[arg-type]
         with self.assertRaises(ValueError):
             totp.at(-30)
 
